@@ -8,10 +8,10 @@ export default function HomeAbout () {
   return (
     <div>
       <Box>
-        <h1
+        <h3
         className="centered"
         style={{color: "white"}}
-        >ABOUT US</h1>
+        >ABOUT US</h3>
       </Box>
       <hr style={{ width: "75%" }} />
     </div>
