@@ -8,10 +8,10 @@ export default function HomeMusic () {
   return (
     <div>
       <Box>
-        <h1
+        <h3
         className="centered"
         style={{color: "white"}}
-        >HEAR OUR MUSIC</h1>
+        >HEAR OUR MUSIC</h3>
       </Box>
       <hr style={{ width: "75%" }} />
     </div>

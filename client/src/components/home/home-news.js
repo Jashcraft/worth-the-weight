@@ -8,10 +8,10 @@ export default function HomeNews () {
   return (
     <div>
       <Box>
-        <h1
+        <h3
         className="centered"
         style={{color: "white"}}
-        >BAND NEWS</h1>
+        >BAND NEWS</h3>
       </Box>
       <hr style={{ width: "75%" }} />
     </div>
