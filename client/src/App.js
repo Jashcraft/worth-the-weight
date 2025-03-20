@@ -1,4 +1,5 @@
 import React from "react";
+import "./App.css"
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import {
   ApolloClient,
@@ -7,6 +8,8 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
+import BasicMenu from "./components/menu/menu";
+import HomePage from "./components/home";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -30,9 +33,10 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
+      <BasicMenu />
       <BrowserRouter>
         <Routes>
-
+          <Route path="/" element={<HomePage />} />
         </Routes>
       </BrowserRouter>
     </ApolloProvider>
