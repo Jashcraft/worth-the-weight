@@ -7,7 +7,6 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -20,7 +19,9 @@ export default function TemporaryDrawer() {
   };
 
   const DrawerList = (
-    <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
+    <Box 
+    sx={{ backgroundColor: "black" ,width: 250 , height: "100vh", color: "whitesmoke"}} role="presentation" onClick={toggleDrawer(false)}
+    >
       <List>
         <ListItem key="About Us" disablePadding>
           <ListItemButton>
@@ -55,7 +56,7 @@ export default function TemporaryDrawer() {
           </ListItemButton>
         </ListItem>
       </List>
-      <Divider />
+      <Divider sx={{color: "whitesmoke", backgroundColor:"whitesmoke", display: "flex", justifyContent: "center", alignItems: "center"}} />
       <List>
         <ListItem key="Contact-Us" disablePadding>
           <ListItemButton>

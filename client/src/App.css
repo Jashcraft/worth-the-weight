@@ -1,5 +1,6 @@
 body {
-  background-color: black;
+  background-image: radial-gradient(black, #202020);
+
 }
 .App {
   text-align: center;
