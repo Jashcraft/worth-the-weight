@@ -50,13 +50,13 @@ export default function TemporaryDrawer() {
   );
 
   return (
-    <div>
+    <div className="menu" >
       <IconButton
         size="large"
-        edge="start"
-        color="secondary"
+        edge="end"
+        color="info"
         aria-label="menu"
-        sx={{ mr: 2 }}
+        sx={{ mr: 2, position: "fixed", backgroundColor: "#303030", color: "#909090", margin: "10px", border: "white", borderStyle:"solid" }}
         onClick={toggleDrawer(true)}
       >
         <MenuIcon />
