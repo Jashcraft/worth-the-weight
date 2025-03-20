@@ -13,7 +13,6 @@ export default function HomePage() {
           src={require("../../images/WTW_Main_Photo.jpg")}
           width={"100%"}
           alt=""
-          style={{minHeight:"80vh"}}
         />
         <img
           src={require("../../images/WTW_Font_Logo.PNG")}
