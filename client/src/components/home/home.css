@@ -3,3 +3,14 @@
   justify-content: center;
   align-items: center;
 }
+
+.media-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 75%;
+}
+.media-item {
+  height: 300px;
+  width: 300px;
+}
