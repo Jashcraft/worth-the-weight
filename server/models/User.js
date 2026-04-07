@@ -1,64 +1,24 @@
-const { Schema, model } = require('mongoose');
-const bcrypt = require('bcrypt');
+import mongoose from 'mongoose'
+import bcrypt from 'bcryptjs'
 
-const userSchema = new Schema(
+const userSchema = new mongoose.Schema(
   {
-    firstName: {
-      type: String,
-      required: true,
-      trim: true
-    },
-    lastName: {
-      type: String,
-      required: true,
-      trim: true
-    },
-    email: {
-      type: String,
-      required: true,
-      unique: true,
-      match: [/.+@.+\..+/, 'Must match an email address!']
-    },
-    password: {
-      type: String,
-      required: true,
-      minlength: 5
-    },
-    admin: {
-      type: Boolean,
-      required: true
-    },
-    createdAt: {
-      type: Date,
-      default: Date.now
-    }
+    name: { type: String, required: true },
+    email: { type: String, required: true, unique: true, lowercase: true },
+    password: { type: String, required: true },
+    role: { type: String, enum: ['admin', 'member'], default: 'member' },
   },
-  {
-    toJSON: {
-      virtuals: true
-    }
+  { timestamps: true }
+)
+
+userSchema.pre('save', async function () {
+  if (this.isModified('password')) {
+    this.password = await bcrypt.hash(this.password, 12)
   }
-);
-
-// set up pre-save middleware to create password
-userSchema.pre('save', async function (next) {
-  if (this.isNew || this.isModified('password')) {
-    const saltRounds = 10;
-    this.password = await bcrypt.hash(this.password, saltRounds);
-  }
-
-  next();
-});
-
-// compare the incoming password with the hashed password
-userSchema.methods.isCorrectPassword = async function (password) {
-  return bcrypt.compare(password, this.password);
-};
-
-userSchema.virtual("fullName").get( function() {
-  return `${this.firstName} ${this.lastName}`
 })
 
-const User = model('User', userSchema);
+userSchema.methods.comparePassword = function (candidate) {
+  return bcrypt.compare(candidate, this.password)
+}
 
-module.exports = User;
+export default mongoose.model('User', userSchema)
