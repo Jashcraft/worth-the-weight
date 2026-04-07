@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import logo from '../assets/logo.png'
 
 const links = [
   { label: 'NEWS', to: '/news' },
@@ -17,12 +18,13 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm border-b border-white/10">
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
-        {/* Logo / Band name */}
-        <Link
-          to="/"
-          className="text-white text-xl font-bold tracking-widest uppercase hover:text-gray-300 transition-colors"
-        >
-          Worth the Weight
+        {/* Logo */}
+        <Link to="/" className="flex items-center">
+          <img
+            src={logo}
+            alt="Worth the Weight"
+            className="h-8 w-auto"
+          />
         </Link>
 
         {/* Desktop nav */}

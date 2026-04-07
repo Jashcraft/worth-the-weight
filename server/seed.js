@@ -9,7 +9,7 @@ import User from './models/User.js'
 const ADMIN = {
   name: 'Admin',
   email: 'admin@worththeweight.com',
-  password: 'ChangeMe123!',
+  password: 'password',
   role: 'admin',
 }
 

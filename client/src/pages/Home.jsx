@@ -1,19 +1,28 @@
 import { Link } from 'react-router-dom'
+import heroImg from '../assets/hero.jpg'
+import logo from '../assets/logo.png'
 
 export default function Home() {
   return (
     <>
-      {/* Hero — full-bleed with placeholder gradient until band photo is added */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-[#0d0d0d] z-10" />
+        {/* Dark gradient overlay so text stays readable */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-[#0d0d0d] z-10" />
 
-        {/* Swap this div for an <img> once you have a hero photo */}
-        <div className="absolute inset-0 bg-gradient-to-br from-zinc-900 via-zinc-800 to-black" />
+        {/* Hero photo */}
+        <img
+          src={heroImg}
+          alt="Worth the Weight"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
 
         <div className="relative z-20 text-center px-6">
-          <h1 className="text-6xl md:text-8xl font-bold tracking-widest uppercase mb-6">
-            Worth the Weight
-          </h1>
+          {/* Band logo instead of text heading */}
+          <img
+            src={logo}
+            alt="Worth the Weight"
+            className="w-full max-w-xl mx-auto mb-8"
+          />
           <p className="text-gray-400 text-sm md:text-base tracking-[0.4em] uppercase mb-10">
             New Album Out Now
           </p>
